@@ -34,7 +34,7 @@ body {
 body {
   font-family: 'Noto Sans Tamil', sans-serif;
   /* CORRECTED: Overall page background using tm2.jpg with a very subtle dark overlay (0.1 opacity) */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('Himage/tm2.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('tm2.jpg');
   background-repeat: repeat;
   background-size: auto; /* Changed to 'auto' to allow original texture size if 'repeat' is used */
   background-position: center top;
@@ -210,7 +210,7 @@ body.no-scroll {
 /* ===== HERO SECTION ===== */
 .hero {
   /* CORRECTED: Hero section background using tm.jpg with an even lower dark overlay (0.15 opacity) */
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Himage/tm.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('tm.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

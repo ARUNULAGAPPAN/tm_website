@@ -34,7 +34,7 @@ body {
 body {
   font-family: 'Noto Sans Tamil', sans-serif;
   /* CORRECTED: Overall page background using tm2.jpg with a very subtle dark overlay (0.1 opacity) */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('tm2.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('Himage/tm2.jpg');
   background-repeat: repeat;
   background-size: auto; /* Changed to 'auto' to allow original texture size if 'repeat' is used */
   background-position: center top;
@@ -210,7 +210,7 @@ body.no-scroll {
 /* ===== HERO SECTION ===== */
 .hero {
   /* CORRECTED: Hero section background using tm.jpg with an even lower dark overlay (0.15 opacity) */
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('tm.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Himage/tm.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1111,6 +1111,7 @@ body.no-scroll {
   .content-section {
     padding: 40px 20px;
     margin: 30px auto;
+    min-height: 150px; /* Added: Ensure content sections have a minimum height on tablets */
   }
 
   .content-section h2 {
@@ -1352,14 +1353,20 @@ body.no-scroll {
   }
 
   .footer-columns {
-    grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 500px;
     gap: 25px;
-    justify-content: center; /* Center columns when wrapped */
   }
 
   .footer-column {
+      flex: 1 1 45%; /* Force 2 columns, approximately */
       text-align: center;
+  }
+  /* Custom effects responsiveness */
+  .custom-cursor-dot, .custom-cursor-trail {
+    display: none !important; /* Hide custom cursor on touch devices */
   }
 }
 
@@ -1426,6 +1433,7 @@ body.no-scroll {
     padding: 30px 15px;
     margin: 20px auto;
     border-radius: 12px;
+    min-height: 120px; /* Added: Ensure content sections have a minimum height on smallest phones */
   }
 
   .content-section h2 {
@@ -1497,23 +1505,27 @@ body.no-scroll {
     font-size: 15.5px;
   }
 
-  /* Staff/Alumni sections responsiveness for smallest phones - stacking */
+  /* Staff/Alumni sections responsiveness for smallest phones - stacking and card-like appearance */
   .staff-container, .alumni-container {
       flex-direction: column; /* Force column stacking */
       align-items: center; /* Center items when stacked */
       text-align: center; /* Center text when stacked */
-      gap: 20px; /* Adjusted gap for stacked items */
+      gap: 25px; /* Increased gap for better separation between cards */
   }
 
   .staff-container .staff-photo, .alumni-container .alumni-photo {
       flex: none; /* Remove flex sizing */
       width: auto; /* Allow auto width */
+      margin-bottom: 15px; /* Added: Space between photo and info when stacked */
   }
 
   .staff-container .staff-photo img, .alumni-container .alumni-photo img {
       width: 100px; /* Smaller image */
       height: 120px; /* Smaller image */
       max-height: unset;
+      border-radius: 10px; /* Make photo border radius consistent with card */
+      border: 2px solid #1e3a8a; /* Ensure photo border is visible */
+      box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2); /* Add shadow to photo */
   }
 
   .staff-container .staff-info, .alumni-container .alumni-info {
@@ -1521,6 +1533,11 @@ body.no-scroll {
       width: 90%; /* Occupy most of the width */
       max-width: 300px; /* Max width for readability */
       text-align: center; /* Center text when stacked */
+      background: #ffffff; /* Added: White background for the info card */
+      padding: 20px; /* Added: Padding for card content */
+      border-radius: 12px; /* Added: Rounded corners for the info card */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Added: Shadow for the info card */
+      border: 1px solid #e0e0e0; /* Added: Subtle border for the info card */
   }
 
 
@@ -1645,4 +1662,113 @@ body.no-scroll {
     gap: 24px;
     align-items: stretch;
   }
+}
+/* === Glowing Cursor with Trailing Effect === */
+.custom-cursor-dot, .custom-cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.custom-cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #ff1744 60%, #b71c1c 100%);
+  box-shadow: 0 0 16px 6px #ff1744, 0 0 2px 1px #b71c1c;
+  mix-blend-mode: lighten;
+}
+.custom-cursor-trail {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle, rgba(255,23,68,0.18) 0%, rgba(183,28,28,0.08) 100%);
+  filter: blur(2px);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+/* === Card Shine Effect on Hover === */
+.content-section,
+.club-box,
+.event-card {
+  position: relative;
+  overflow: hidden;
+}
+.content-section::before,
+.club-box::before,
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: -75%;
+  left: -50%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.0) 100%);
+  transform: skewX(-25deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.content-section:hover::before,
+.club-box:hover::before,
+.event-card:hover::before {
+  animation: shine-sweep 0.9s linear;
+  opacity: 1;
+}
+@keyframes shine-sweep {
+  0% {
+    left: -60%;
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+/* === Twinkling Stars Background === */
+.stars-bg {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+.star-twinkle {
+  position: absolute;
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: #fffbe9;
+  box-shadow: 0 0 6px 2px #fffbe9, 0 0 1px 0.5px #fffde7;
+  opacity: 0.7;
+  animation: twinkle 2.5s infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.7; transform: scale(1);}
+  50% { opacity: 1; transform: scale(1.3);}
+}
+
+/* === Typewriter Animation for Title === */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #ff1744;
+  animation: typing 2.5s steps(30, end), blink-caret 0.7s step-end infinite;
+  font-family: inherit;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  0%, 100% { border-color: #ff1744; }
+  50% { border-color: transparent; }
 }

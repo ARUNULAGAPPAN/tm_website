@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>எம்.ஐ.டி தமிழ் மன்றம்</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="styles.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,13 +15,13 @@
   <!-- Navigation -->
   <nav class="main-nav">
     <a href="#" class="nav-logo-link">
-      <img src="Himage/tm3.jpg" alt="Tamil Mandram Logo" class="nav-logo">
+      <img src="tm3.jpg" alt="Tamil Mandram Logo" class="nav-logo">
     </a>
     <div class="nav-links-desktop">
       <a href="#about">நோக்கம்</a>
-      <a href="nigalvu.html">நிகழ்வுகள்</a>
-      <a href="kuzhu.html">குழுக்கள்</a>
-      <a href="Office.html">பொறுப்பாளர்</a>
+      <a href="#highlights">நிகழ்வுகள்</a>
+      <a href="#clubs">குழுக்கள்</a>
+      <a href="#staff">பொறுப்பாளர்</a>
       <a href="#alumni">பழைய மாணவர்</a>
       <a href="#gallery">காட்சியகம்</a>
       <a href="#contact">தொடர்பு</a>
@@ -45,7 +46,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-logo">
-      <img src="Himage/tm3.jpg" alt="Tamil Mandram Logo">
+      <img src="tm3.jpg" alt="Tamil Mandram Logo">
       <h1 class="typewriter">எம்.ஐ.டி தமிழ் மன்றம்</h1>
     </div>
     <div class="hero-content">
@@ -153,7 +154,7 @@
       <h2>பொறுப்பாளர் குறிப்பு</h2>
       <div class="staff-container">
         <div class="staff-photo">
-          <img src="Himage/mm.webp" alt="பொறுப்பாளர் புகைப்படம்">
+          <img src="mm.webp" alt="பொறுப்பாளர் புகைப்படம்">
         </div>
         <div class="staff-info">
           <h3 class="staff-name">டாக்டர். கவிஅரசு</h3>
@@ -174,7 +175,7 @@
       <h2>பழைய மாணவர் குறிப்பு</h2>
       <div class="alumni-container">
         <div class="alumni-photo">
-          <img src="Himage/mm.webp" alt="பழைய மாணவர் புகைப்படம்">
+          <img src="mm.webp" alt="பழைய மாணவர் புகைப்படம்">
         </div>
         <div class="alumni-info">
           <h3 class="alumni-name">திரு. அருண் பிரசாத்</h3>
@@ -326,7 +327,7 @@
           <h3>ஆதரவு</h3>
           <ul>
             <li><a href="#contact">தொடர்பு</a></li>
-           
+            <li><a href="#">அடிக்கடி கேட்கப்படும் கேள்விகள்</a></li>
             <li><a href="#">பயன்பாட்டு வழிகாட்டி</a></li>
           </ul>
         </div>
@@ -338,7 +339,13 @@
             <li><a href="#">எங்களைப் பற்றி</a></li>
           </ul>
         </div>
-       
+        <div class="footer-column">
+          <h3>சட்டரீதியான</h3>
+          <ul>
+            <li><a href="#">தனியுரிமை</a></li>
+            <li><a href="#">விதிமுறைகள்</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -348,7 +355,7 @@
   </footer>
 
   <script>
-
+    // Internal JavaScript for mobile navigation and smooth scrolling
     document.addEventListener('DOMContentLoaded', () => {
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNavMenu = document.querySelector('.mobile-nav-menu');
